@@ -1,0 +1,28 @@
+{
+    "name": "carlin/laravel-dict",
+    "type": "library",
+    "require": {
+        "php": ">=8.0",
+        "laravel/framework": ">=8",
+        "bensampo/laravel-enum": ">=4.0",
+        "nikic/php-parser": ">=4.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Carlin\\LaravelDict\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Carlin\\LaravelDict\\DictServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "wanghaojie",
+            "email": "814425737@qq.com"
+        }
+    ]
+}
