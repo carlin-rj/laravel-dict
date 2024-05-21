@@ -53,11 +53,7 @@ class DictCollect
 
 
 		try {
-			if (method_exists(ParserFactory::class, 'createForNewestSupportedVersion')) {
-				$parser = (new ParserFactory())->createForNewestSupportedVersion();
-			} else {
-				$parser = (new ParserFactory())->create(ParserFactory::PREFER_PHP7);
-			}
+			$parser = (new ParserFactory())->createForNewestSupportedVersion();
 			// 解析 PHP 代码
 			$ast = $parser->parse($code);
 			$traverser = new NodeTraverser();
