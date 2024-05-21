@@ -5,7 +5,7 @@ Scan the specified path to obtain enumeration information through reflection
 composer require carlin/laravel-dict
 
 ### 发布配置文件:
-php artisan vendor:publish --provider "Yc\YcBase\Dict\DictServiceProvider"
+php artisan vendor:publish --provider "Carlin\LaravelDict\DictServiceProvider"
 
 ### 配置文件:
 ```php
