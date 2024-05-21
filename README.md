@@ -25,7 +25,7 @@ return [
 <?php
 namespace App\Enums;
 
-use Yc\YcBase\Dict;
+use Carlin\LaravelDict\Dict;
 use BenSampo\Enum\Enum;
 
 class BaseEnum extends Enum {
