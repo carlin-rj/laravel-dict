@@ -52,7 +52,7 @@ use Carlin\LaravelDict\Attributes\EnumProperty;
 #[EnumClass(
 __CLASS__,  //枚举类名
 '布尔整型枚举', //枚举描述
-'webApi' //枚举分组
+'webApi', //枚举分组
 [
     'test'=>1 //业务拓展字段(选填)
 ]
