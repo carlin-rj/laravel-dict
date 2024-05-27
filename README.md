@@ -49,7 +49,7 @@ namespace App\Enums;
 use Carlin\LaravelDict\Attributes\EnumClass;
 use Carlin\LaravelDict\Attributes\EnumProperty;
 
-#[EnumClass(__CLASS__, '布尔整型枚举')]
+#[EnumClass(__CLASS__, '布尔整型枚举', 'webApi')] //枚举类注解
 class BoolIntEnums extends BaseEnum
 {
     //#[EnumProperty('是', ['test'=>2])] //拓展test字段
@@ -74,28 +74,37 @@ Dict::getEnums(BoolIntEnums::class); //获取枚举信息
 Dict::getDescription(BoolIntEnums::class, 1); //获取枚举描述
 //获取枚举字典列表
 Dict::getDict();
-
+//获取指定group字典
+Dict::getByGroup('webApi');
 ```
-### 业务逻辑
-```php
-    //获取所有字典
-    public function all(): array
-    {
-        return array_values(Dict::getDict());
-    }
-    
-    //获取指定group字典
-    public function getByGroup(string $key): array
-    {
-        $data = [];
-        $list = $this->all();
-        foreach ($list as $item) {
-            //检查group字段是否包含webApi
-            if (isset($item['group']) && Str::contains($item['group'], $key)) {
-                $data[] = $item;
-            }
-        }
 
-        return $data;
-    }
+### Dict::getDict输出示例:
+```
+//获取枚举字典列表
+Array
+(
+    [App\Enums\BoolIntEnum] => Array
+        (
+            [name] => bool
+            [description] => 布尔值字典
+            [group] => webapi
+            [data] => Array
+                (
+                    [0] => Array
+                        (
+                            [name] => 是
+                            [code] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [name] => 否
+                            [code] => 0
+                        )
+
+                )
+
+            [class] => App\Enums\BoolIntEnum
+        )
+)
 ```

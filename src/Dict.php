@@ -2,6 +2,7 @@
 namespace Carlin\LaravelDict;
 
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Str;
 
 class Dict
 {
@@ -16,6 +17,20 @@ class Dict
 			return (new DictCollect())->collect(config('dict-enum.enum-scan-paths'));
         });
     }
+
+	public static function getDictByGroup(string $group): array
+	{
+		$data = [];
+		$list = self::getDict();
+		foreach ($list as $item) {
+			//检查group字段是否包含webApi
+			if (isset($item['group']) && Str::contains($item['group'], $group)) {
+				$data[] = $item;
+			}
+		}
+
+		return $data;
+	}
 
     public static function getDescription(string $class, mixed $value): ?string
     {
