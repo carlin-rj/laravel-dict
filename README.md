@@ -49,10 +49,17 @@ namespace App\Enums;
 use Carlin\LaravelDict\Attributes\EnumClass;
 use Carlin\LaravelDict\Attributes\EnumProperty;
 
-#[EnumClass(__CLASS__, '布尔整型枚举', 'webApi')] //枚举类注解
+#[EnumClass(
+__CLASS__,  //枚举类名
+'布尔整型枚举', //枚举描述
+'webApi' //枚举分组
+[
+    'test'=>1 //业务拓展字段(选填)
+]
+)] //枚举类注解
 class BoolIntEnums extends BaseEnum
 {
-    //#[EnumProperty('是', ['test'=>2])] //拓展test字段
+    //#[EnumProperty('是', ['test'=>2])] //业务拓展字段(选填)
     #[EnumProperty('是', ['test'=>2])]
     public const TRUE = 1;
 
@@ -88,18 +95,24 @@ Array
             [name] => bool
             [description] => 布尔值字典
             [group] => webapi
+            [test] => 1  //业务拓展字段(选填）
+            ...//其他业务拓展字段
             [data] => Array
                 (
                     [0] => Array
                         (
                             [name] => 是
                             [code] => 1
+                            [test] => 2 //业务拓展字段(选填）
+                            ...//其他业务拓展字段
                         )
 
                     [1] => Array
                         (
                             [name] => 否
                             [code] => 0
+                            [test] => 1 //业务拓展字段(选填）
+                            ...//其他业务拓展字段
                         )
 
                 )
