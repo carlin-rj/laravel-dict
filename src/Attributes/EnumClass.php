@@ -11,6 +11,7 @@ class EnumClass
         public string $name,
         public string $description = '',
 		public ?string $group = null,
-    ) {
+		public array $options = [],
+	) {
     }
 }

@@ -39,6 +39,7 @@ class DictCollect
 				if ($attribute->group) {
 					$dict[$class]['group'] = $attribute->group;
 				}
+				$dict[$class] += $attribute->options;
                 $dict[$class]['data'] = $this->collectProperty($reflectionClass);
                 $dict[$class]['class'] = $class;
             }
